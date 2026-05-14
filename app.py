@@ -74,13 +74,14 @@ with st.sidebar:
     )
 
     page = st.radio(
-        "",
+        "Main navigation",
         [
             "Upload Evidence",
             "Analysis Dashboard",
             "Reports",
             "Settings"
         ],
+        label_visibility="collapsed",
         format_func=lambda x: {
             "Upload Evidence": "📂  Upload Evidence",
             "Analysis Dashboard": "📊  Analysis Dashboard",
@@ -676,7 +677,7 @@ if page == "Upload Evidence":
 
         analyze_button = st.button(
             "Run AI Risk Analysis",
-            use_container_width=True
+            width="stretch"
         )
 
         if analyze_button:
@@ -903,7 +904,7 @@ elif page == "Analysis Dashboard":
                 )]
             )
 
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
         with chart_col2:
             categories = {}
@@ -957,7 +958,7 @@ elif page == "Analysis Dashboard":
                 margin=dict(t=50, b=20, l=20, r=20),
             )
 
-            st.plotly_chart(fig2, use_container_width=True)
+            st.plotly_chart(fig2, width="stretch")
 
         # --- Trend / Score Gauge ---
         gauge_col, tbl_col = st.columns([1, 2])
@@ -1000,7 +1001,7 @@ elif page == "Analysis Dashboard":
                 margin=dict(t=30, b=10, l=20, r=20),
                 height=260
             )
-            st.plotly_chart(fig3, use_container_width=True)
+            st.plotly_chart(fig3, width="stretch")
 
         with tbl_col:
             st.markdown(
@@ -1127,14 +1128,16 @@ elif page == "Reports":
                     }
                     return colors.get(val, "")
 
-                styled_df = df.style.applymap(
-                    color_severity,
-                    subset=["severity"] if "severity" in df.columns else []
-                )
+                # pandas 2.1+ / 3.x: Styler.applymap was renamed to Styler.map
+                _styler = df.style
+                if hasattr(_styler, "map"):
+                    styled_df = _styler.map(color_severity, subset=["severity"])
+                else:
+                    styled_df = _styler.applymap(color_severity, subset=["severity"])
 
                 st.dataframe(
                     styled_df,
-                    use_container_width=True,
+                    width="stretch",
                     height=420
                 )
 
@@ -1189,7 +1192,7 @@ elif page == "Reports":
                 data=json.dumps(st.session_state.all_risks, indent=2),
                 file_name=f"risk_assessment_{datetime.now().strftime('%Y%m%d_%H%M')}.json",
                 mime="application/json",
-                use_container_width=True
+                width="stretch"
             )
         with dl_col2:
             if st.session_state.all_risks:
@@ -1199,7 +1202,7 @@ elif page == "Reports":
                     data=csv_data,
                     file_name=f"risk_assessment_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
                     mime="text/csv",
-                    use_container_width=True
+                    width="stretch"
                 )
 
 # ---------------------------------------------------
