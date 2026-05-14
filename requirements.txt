@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+streamlit
+openai
+pdfplumber
+pymupdf
+python-docx
+pytesseract
+pillow
+pandas
+numpy
+reportlab
+python-multipart
+tqdm
+openpyxl
+python-dotenv
+requests
