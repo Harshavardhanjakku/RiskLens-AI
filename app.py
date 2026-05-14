@@ -31,7 +31,7 @@ if uploaded_files:
             }
 
             response = requests.post(
-                "http://127.0.0.1:8000/analyze",
+                "https://risklens-ai-go8b.onrender.com/analyze",
                 files=files
             )
 
