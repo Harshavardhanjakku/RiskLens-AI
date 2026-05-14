@@ -1,7 +1,6 @@
 fastapi
 uvicorn
 streamlit
-openai
 pdfplumber
 pymupdf
 python-docx
@@ -15,3 +14,4 @@ tqdm
 openpyxl
 python-dotenv
 requests
+groq
