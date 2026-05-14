@@ -76,6 +76,52 @@ It extracts security-relevant information, identifies potential control gaps, cl
 
 ---
 
+# 📸 Product screenshots
+
+Visual tour of the **RiskLens AI** Streamlit experience. Assets live in [`Screenshots/`](Screenshots/) in this repository (paths are relative to the repo root so they render on GitHub).
+
+### Dashboard home
+
+![Dashboard home — landing overview and navigation context](Screenshots/dashboard-home.png)
+
+### Upload center
+
+![Upload center — vendor evidence intake (PDF, DOCX, XLSX)](Screenshots/upload-center.png)
+
+### Risk dashboard
+
+![Analysis dashboard — KPIs, filters, and risk intelligence layout](Screenshots/risk-dashboard.png)
+
+### Severity analysis
+
+![Severity analysis — distribution and category views](Screenshots/severity-analysis.png)
+
+### Reports — section overview
+
+![Reports — executive reporting and findings workspace](Screenshots/reports-section.png)
+
+### Executive summary
+
+![Executive summary — narrative assessment output](Screenshots/executive-summary.png)
+
+### Risk findings
+
+![Risk findings — tabular findings with severity context](Screenshots/risk-findings.png)
+
+### Detailed findings
+
+![Detailed findings — per-finding drill-down](Screenshots/detailed-findings.png)
+
+### SOC 2 analysis (demo)
+
+![SOC 2 analysis — sample evidence workflow](Screenshots/soc2-analysis-demo.png)
+
+### Settings
+
+![Settings — platform information and API configuration](Screenshots/settings-panel.png)
+
+---
+
 # 🧱 System Architecture
 
 ## Logical architecture (implementation-aligned)
